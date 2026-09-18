@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Happy Birthday Andrea Maria Jesslin ❤️</title>
+  
+  <!-- SEO & Sharing Open Graph Metadata -->
+  <meta name="description" content="A little birthday surprise made especially for Andrea Maria Jesslin. 🎂✨">
+  <meta name="theme-color" content="#0c0714">
+  <meta property="og:title" content="Happy Birthday Andrea Maria Jesslin ❤️">
+  <meta property="og:description" content="A little birthday surprise made especially for Andrea Maria Jesslin. 🎂✨">
+  <meta property="og:type" content="website">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Favicon Heart Emoji SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+  
+  <!-- Google Fonts: Display & Body Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css?v=27.0">
+</head>
+<body>
+
+  <!-- Cinematic Loading Screen Overlay (Preloader) -->
+  <div id="loading-screen" class="loading-screen" aria-label="Loading Experience">
+    <div class="loading-content">
+      <span class="loading-heart">💖</span>
+      <p class="loading-text">Preparing something special... ❤️</p>
+      <p class="loading-subtext">For Andrea Maria Jesslin ✨</p>
+      <div class="loading-bar"><div class="loading-progress"></div></div>
+    </div>
+  </div>
+
+  <!-- Background Particle & Floating Hearts Canvas -->
+  <canvas id="bg-canvas"></canvas>
+  
+  <!-- Ambient Soft Glowing Background Orbs -->
+  <div class="ambient-light orb-1"></div>
+  <div class="ambient-light orb-2"></div>
+  <div class="ambient-light orb-3"></div>
+
+  <!-- Audio Resources -->
+  <audio id="bg-music" src="audio/birthday-song.mp3" preload="auto"></audio>
+  <audio id="sfx-click" src="audio/click.mp3" preload="auto"></audio>
+  <audio id="sfx-reveal" src="audio/reveal.mp3" preload="auto"></audio>
+  <audio id="sfx-celebration" src="audio/celebration.mp3" preload="auto"></audio>
+
+
+
+  <!-- Main Experience Container -->
+  <main class="app-container">
+
+    <!-- ====================================================================
+         SECTION 1: WELCOME SCREEN 🧸
+         ==================================================================== -->
+    <section id="welcome" class="stage active" aria-label="Welcome Screen">
+      <div class="glass-card welcome-card">
+        <div class="welcome-content-split">
+
+          <!-- Left Text Side -->
+          <div class="welcome-text-side">
+            <div class="card-icon" aria-hidden="true">
+              <span class="sparkle">✨</span>
+              <span class="heart-pulse">💖</span>
+              <span class="sparkle">✨</span>
+            </div>
+
+            <h1 class="welcome-title">
+              Happy Birthday <span class="name-highlight">Andrea Maria Jesslin</span> <span class="title-heart">❤️</span>
+            </h1>
+
+            <p class="welcome-subtitle">
+              I made something special just for you...
+            </p>
+
+            <button id="start-btn" class="glow-button" aria-label="Open Your Surprise">
+              <span class="btn-text">Open Your Surprise</span>
+              <span class="btn-sparkle">✨</span>
+              <div class="btn-glow-effect"></div>
+            </button>
+          </div>
+
+          <!-- Right Photo Side -->
+          <div class="welcome-photo-side">
+            <div class="welcome-photo-container" aria-label="Photo of Andrea Maria Jesslin">
+              <span class="bear-heart-particle bear-heart-1">💖</span>
+              <span class="bear-heart-particle bear-heart-2">✨</span>
+              <span class="bear-heart-particle bear-heart-3">🌸</span>
+              <img src="images/welcome-photo.jpg" alt="Andrea Maria Jesslin" class="welcome-photo-img">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ====================================================================
+         SECTION 4: SPECIAL MESSAGE 💌
+         Consolidated Birthday Message + Make a Wish Interaction
+         ==================================================================== -->
+    <section id="message" class="stage" data-section="message" aria-label="Special Message Section">
+      
+      <!-- Personal Birthday Message & Cake Card (Single Unified Card) -->
+      <div class="glass-card message-card">
+        <!-- Top Left Back Button -->
+        <button class="stage-back-btn" data-back-to="welcome" aria-label="Back to Welcome">
+          <span class="back-arrow">←</span> Back
+        </button>
+
+        <div class="message-split-container">
+          
+          <!-- Left Side: Personal Message -->
+          <div class="message-text-column">
+            <h2 class="message-title">
+              Andrea Maria Jesslin... <span class="sparkle">✨</span>
+            </h2>
+            <p class="message-subtitle">
+              There's something I want you to know. <span class="heart-pulse">❤️</span>
+            </p>
+
+            <div class="personal-message-body" id="message-body">
+              <p class="message-paragraph">Happy Birthday, Andrea! ❤️</p>
+              <p class="message-paragraph">I made this little surprise just for you because you deserve a day filled with happiness, smiles and beautiful memories.</p>
+              <p class="message-paragraph">We've shared so many moments, and I hope there are many more memories waiting for us.</p>
+              <p class="message-paragraph">Whatever this new year brings, I hope you always keep smiling and chasing the things that make you happy.</p>
+              <p class="message-paragraph">Enjoy your day, Andrea. You deserve it! 🎂✨</p>
+            </div>
+          </div>
+
+          <!-- Right Side: Birthday Candle & Wish -->
+          <div class="message-cake-column">
+            <h3 class="wish-title">
+              Andrea, make a wish... <span class="sparkle-title">✨</span>
+            </h3>
+            <p class="wish-subtitle">
+              Close your eyes and make your birthday wish!
+            </p>
+
+            <div class="cake-visual-wrapper" id="cake-wrapper">
+              <div class="cake-container">
+                <div class="candle-wrapper">
+                  <div class="candle-flame-glow" id="flame-glow"></div>
+                  <div class="candle-flame" id="candle-flame">
+                    <div class="flame-inner"></div>
+                  </div>
+                  <div class="candle-wick"></div>
+                  <div class="candle-stick"></div>
+                </div>
+
+                <div class="cake-tier cake-tier-top">
+                  <div class="cake-frosting">
+                    <span class="frosting-drip"></span>
+                    <span class="frosting-drip"></span>
+                    <span class="frosting-drip"></span>
+                    <span class="frosting-drip"></span>
+                  </div>
+                </div>
+                <div class="cake-tier cake-tier-bottom">
+                  <div class="cake-frosting">
+                    <span class="frosting-drip"></span>
+                    <span class="frosting-drip"></span>
+                    <span class="frosting-drip"></span>
+                    <span class="frosting-drip"></span>
+                    <span class="frosting-drip"></span>
+                  </div>
+                </div>
+                <div class="cake-plate"></div>
+              </div>
+            </div>
+
+            <div class="wish-actions">
+              <button id="wish-btn" class="glow-button wish-button" aria-label="Make My Wish">
+                <span class="btn-text">Make My Wish</span>
+                <span class="btn-sparkle">🎂</span>
+                <div class="btn-glow-effect"></div>
+              </button>
+
+              <div id="wish-response" class="wish-response-box hidden-state">
+                <p class="wish-made-text">May this new year be filled with happiness, success, laughter, and endless reasons to smile. ❤️</p>
+                <p class="wish-heading-highlight">Happy Birthday, Andrea! 🎂✨</p>
+              </div>
+
+              <button id="rewish-btn" class="glow-button secondary-glow-btn hidden-state" aria-label="Make Another Wish">
+                <span class="btn-text">Make Another Wish</span>
+                <span class="btn-sparkle">✨</span>
+              </button>
+
+              <button id="stage2-next-btn" class="glow-button continue-button" aria-label="Play Birthday Game">
+                <span class="btn-text">Play Birthday Game 🎮</span>
+                <span class="btn-arrow">→</span>
+                <div class="btn-glow-effect"></div>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ====================================================================
+         SECTION 3: BIRTHDAY MINI-GAME 🎮💖
+         Catch the Birthday Sparkles & Hearts Mini-Game for Andrea
+         ==================================================================== -->
+    <section id="game" class="stage" data-section="game" aria-label="Birthday Game Section">
+      <div class="glass-card game-card">
+        <!-- Top Left Back Button -->
+        <button class="stage-back-btn" data-back-to="message" aria-label="Back to Message">
+          <span class="back-arrow">←</span> Back
+        </button>
+        
+        <!-- Game Header -->
+        <div class="game-header">
+          <span class="game-badge">🎮 BIRTHDAY MINI-GAME</span>
+          <h2 class="game-title">
+            Catch the Pink Flowers! <span class="sparkle">🌸</span>
+          </h2>
+          <p class="game-instructions">
+            Tap <strong class="highlight-pink">🌸 Flowers (+1)</strong> & <strong class="highlight-gold">⭐ Golden Stars (+2)</strong>! Avoid <strong class="highlight-red">💣 Bombs</strong>!
+          </p>
+        </div>
+
+        <!-- Game Score & Status Bar -->
+        <div class="game-status-bar">
+          <div class="game-score-badge">
+            <span class="score-label">Flowers:</span>
+            <span id="game-score-count" class="score-number">0</span> / 5 🌸
+          </div>
+          <div id="game-streak-badge" class="game-streak-badge">
+            🔥 Streak: <span id="game-streak-count" class="streak-number">0</span>
+          </div>
+          <button id="game-reset-btn" class="game-reset-btn" aria-label="Restart Game">
+            🔄 Reset
+          </button>
+        </div>
+
+        <!-- Game Progress Bar -->
+        <div class="game-progress-wrapper">
+          <div id="game-progress-fill" class="game-progress-fill" style="width: 0%;"></div>
+        </div>
+
+        <!-- Interactive Game Play Arena -->
+        <div class="game-arena" id="game-arena" aria-label="Game Play Arena">
+          <!-- Floating interactive items will be generated dynamically by script.js -->
+        </div>
+
+        <!-- Game Victory Card (Unlocked when score == 5) -->
+        <div id="game-win-card" class="game-win-card hidden-state">
+          <div class="win-sparkle-burst">🎉✨💖</div>
+          <h3 class="win-title">You Did It, Andrea! 🏆✨</h3>
+          <p class="win-subtitle">You unlocked your birthday surprise gift!</p>
+          <button id="game-next-btn" class="glow-button game-continue-btn" aria-label="Open My Gift">
+            <span class="btn-text">Open My Gift 🎁</span>
+            <span class="btn-arrow">→</span>
+            <div class="btn-glow-effect"></div>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 5: GRAND FINALE 🎂
+         Closing Wishes, Confetti Explosion, Floating Hearts & Replay Button
+         ==================================================================== -->
+    <section id="finale" class="stage" data-section="finale" aria-label="Grand Finale Section">
+      <div class="glass-card final-stage-card">
+        <!-- Top Left Back Button -->
+        <button class="stage-back-btn" data-back-to="game" aria-label="Back to Game">
+          <span class="back-arrow">←</span> Back
+        </button>
+        
+        <!-- Elegant Audio Control Button -->
+        <div class="audio-control-bar">
+          <button id="music-toggle-btn" class="music-pill-button" aria-label="Toggle Birthday Music">
+            <span class="music-icon" id="music-icon">🎵</span>
+            <span class="music-label" id="music-label">Play Song</span>
+          </button>
+        </div>
+
+        <!-- Grand Finale Header -->
+        <div class="final-header">
+          <h1 class="final-wishes-title">
+            Happy Birthday <span class="heart-pulse">❤️</span>
+          </h1>
+          <h2 class="final-name-highlight">
+            Andrea Maria Jesslin
+          </h2>
+        </div>
+
+        <!-- Editable Final Message Card -->
+        <div class="final-message-container">
+          <p class="final-message-line">I hope this little surprise made your day a little more special. ❤️</p>
+          <p class="final-message-line">Keep smiling, keep dreaming, and keep being yourself.</p>
+          <p class="final-message-line">You deserve all the beautiful moments that are waiting for you.</p>
+          <p class="final-message-heart">Wishing you a wonderful year ahead! 🎂✨</p>
+        </div>
+
+        <!-- Final Memory Family Photo Frame -->
+        <div class="final-photo-container">
+          <div class="final-photo-frame" data-src="images/family-photo.jpg?v=26.0">
+            <img src="images/family-photo.jpg?v=26.0" alt="Andrea Maria Jesslin Family Photo" class="final-photo-img">
+          </div>
+        </div>
+
+        <!-- Final Action Navigation Buttons -->
+        <div class="final-actions-row">
+          <button id="replay-btn" class="glow-button secondary-glow-btn" aria-label="Replay Experience">
+            <span class="btn-text">Replay Experience</span>
+            <span class="btn-icon">🔄</span>
+          </button>
+
+          <button id="extra-surprise-btn" class="glow-button primary-glow-btn" aria-label="One More Surprise">
+            <span class="btn-text">One More Surprise</span>
+            <span class="btn-icon">✨</span>
+            <div class="btn-glow-effect"></div>
+          </button>
+        </div>
+
+        <!-- Hidden Secret Surprise Trigger -->
+        <div class="secret-trigger-container">
+          <span id="secret-heart-trigger" class="secret-heart-trigger" aria-label="Discover Secret Surprise" role="button" tabindex="0">💖</span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- One More Surprise Modal -->
+  <div id="surprise-modal" class="lightbox-modal" aria-hidden="true" role="dialog">
+    <div class="lightbox-overlay" id="surprise-modal-overlay"></div>
+    <div class="lightbox-content surprise-modal-content interactive-surprise-modal">
+      <button id="surprise-modal-close" class="lightbox-close-btn" aria-label="Close">&times;</button>
+      <div class="surprise-modal-body">
+        <span class="modal-heart-icon">💖</span>
+        <h3 class="modal-title">Andrea Maria Jesslin ❤️</h3>
+        <p class="modal-subtitle">This little website was made especially for you.</p>
+        <div class="secret-highlight-card">
+          <p class="secret-highlight-heading">Happy Birthday! 🎂✨</p>
+          <p class="secret-highlight-body">May your days be filled with endless joy, laughter, and beautiful memories. You deserve all the magic in the world! ❤️</p>
+        </div>
+        <p class="interactive-tap-hint">✨ Tap anywhere on screen for glowing sparkles! ✨</p>
+        <button id="surprise-modal-dismiss" class="glow-button dismiss-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden Secret Surprise Easter Egg Modal -->
+  <div id="secret-modal" class="lightbox-modal" aria-hidden="true" role="dialog">
+    <div class="lightbox-overlay" id="secret-modal-overlay"></div>
+    <div class="lightbox-content secret-modal-content">
+      <button id="secret-modal-close" class="lightbox-close-btn" aria-label="Close secret message">&times;</button>
+      <div class="secret-modal-body">
+        <span class="secret-modal-emoji">👀❤️</span>
+        <h3 class="secret-modal-title">Wait... you found the secret! 👀❤️</h3>
+        <p class="secret-modal-subtitle">Because one surprise was never enough.</p>
+        <div class="secret-highlight-card">
+          <p class="secret-highlight-heading">Happy Birthday once again, Andrea! 🎂✨</p>
+          <p class="secret-highlight-body">You are truly special, and I hope this little website gave you a reason to smile today.</p>
+        </div>
+        <button id="secret-modal-dismiss" class="glow-button secret-dismiss-btn">Close the Secret ✨</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js?v=27.0"></script>
+</body>
+</html>
