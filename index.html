@@ -3,374 +3,763 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Happy Birthday Andrea Maria Jesslin ❤️</title>
+  <title>Happy Birthday Agnes Veronica Roselin! 🎀 | Cute Memory Scrapbook</title>
   
-  <!-- SEO & Sharing Open Graph Metadata -->
-  <meta name="description" content="A little birthday surprise made especially for Andrea Maria Jesslin. 🎂✨">
-  <meta name="theme-color" content="#0c0714">
-  <meta property="og:title" content="Happy Birthday Andrea Maria Jesslin ❤️">
-  <meta property="og:description" content="A little birthday surprise made especially for Andrea Maria Jesslin. 🎂✨">
+  <!-- SEO & Social Open Graph Metadata -->
+  <meta name="description" content="A cute memory scrapbook birthday surprise created especially for Agnes Veronica Roselin! Filled with polaroids, magic wand touch effect, hidden hearts game, scratch card, and photo puzzle! 🎀✨">
+  <meta name="theme-color" content="#fbf6ee">
+  <meta property="og:title" content="Happy Birthday Agnes Veronica Roselin! 🎀">
+  <meta property="og:description" content="Turn the pages of this personal scrapbook to discover memories, sweet surprises, mini-games, and a secret birthday letter for Agnes. 💖">
   <meta property="og:type" content="website">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-  <!-- Favicon Heart Emoji SVG -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
   
-  <!-- Google Fonts: Display & Body Fonts -->
+  <!-- Mobile Web App Settings -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- Favicon Heart Ribbon SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎀</text></svg>">
+  
+  <!-- Google Fonts: Handwritten, Journal Script & Clean Body -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="style.css?v=27.0">
+  <link rel="stylesheet" href="style.css?v=3.3">
 </head>
 <body>
 
-  <!-- Cinematic Loading Screen Overlay (Preloader) -->
-  <div id="loading-screen" class="loading-screen" aria-label="Loading Experience">
-    <div class="loading-content">
-      <span class="loading-heart">💖</span>
-      <p class="loading-text">Preparing something special... ❤️</p>
-      <p class="loading-subtext">For Andrea Maria Jesslin ✨</p>
-      <div class="loading-bar"><div class="loading-progress"></div></div>
-    </div>
+  <!-- Magic Wand Interactive Touch Trail Canvas (Captures Touch, Stylus & Mouse) -->
+  <canvas id="wand-canvas" aria-hidden="true"></canvas>
+
+  <!-- Ambient Scrapbook Background Stickers & Paper Grid -->
+  <div class="scrapbook-ambient-decorations" aria-hidden="true">
+    <span class="floating-doodle doodle-1">🌸</span>
+    <span class="floating-doodle doodle-2">✨</span>
+    <span class="floating-doodle doodle-3">🎀</span>
+    <span class="floating-doodle doodle-4">⭐</span>
+    <span class="floating-doodle doodle-5">🍓</span>
+    <span class="floating-doodle doodle-6">🧁</span>
   </div>
 
-  <!-- Background Particle & Floating Hearts Canvas -->
-  <canvas id="bg-canvas"></canvas>
-  
-  <!-- Ambient Soft Glowing Background Orbs -->
-  <div class="ambient-light orb-1"></div>
-  <div class="ambient-light orb-2"></div>
-  <div class="ambient-light orb-3"></div>
-
-  <!-- Audio Resources -->
+  <!-- Audio Resources & Sound Controller -->
   <audio id="bg-music" src="audio/birthday-song.mp3" preload="auto"></audio>
-  <audio id="sfx-click" src="audio/click.mp3" preload="auto"></audio>
-  <audio id="sfx-reveal" src="audio/reveal.mp3" preload="auto"></audio>
-  <audio id="sfx-celebration" src="audio/celebration.mp3" preload="auto"></audio>
 
+  <!-- Main Scrapbook Desk / Stage -->
+  <div class="scrapbook-desk">
 
+    <!-- Top Scrapbook Bookmark Tabs Navigation -->
+    <header class="scrapbook-top-bar" aria-label="Scrapbook Navigation">
+      <nav class="bookmark-tabs" role="tablist" aria-label="Scrapbook Pages">
+        <button class="tab-item active" data-page="welcome" role="tab" aria-selected="true" aria-controls="page-welcome">
+          <span class="tab-ribbon">🎀</span>
+          <span class="tab-label">Welcome</span>
+        </button>
+        <button class="tab-item" data-page="memories" role="tab" aria-selected="false" aria-controls="page-memories">
+          <span class="tab-ribbon">📷</span>
+          <span class="tab-label">Memories</span>
+        </button>
+        <button class="tab-item" data-page="game" role="tab" aria-selected="false" aria-controls="page-game">
+          <span class="tab-ribbon">💖</span>
+          <span class="tab-label">Hearts</span>
+        </button>
+        <button class="tab-item" data-page="scratch" role="tab" aria-selected="false" aria-controls="page-scratch">
+          <span class="tab-ribbon">✨</span>
+          <span class="tab-label">Scratch</span>
+        </button>
+        <button class="tab-item" data-page="puzzle" role="tab" aria-selected="false" aria-controls="page-puzzle">
+          <span class="tab-ribbon">🧩</span>
+          <span class="tab-label">Puzzle</span>
+        </button>
+        <button class="tab-item" data-page="letter" role="tab" aria-selected="false" aria-controls="page-letter">
+          <span class="tab-ribbon">💌</span>
+          <span class="tab-label">Letter</span>
+          <span class="tab-lock-badge" id="tab-lock-icon" title="Locked until games are complete">🔒</span>
+        </button>
+        <button class="tab-item" data-page="celebration" role="tab" aria-selected="false" aria-controls="page-celebration">
+          <span class="tab-ribbon">🎂</span>
+          <span class="tab-label">Celebrate</span>
+        </button>
+      </nav>
 
-  <!-- Main Experience Container -->
-  <main class="app-container">
+      <!-- Audio / Music Toggle Pill -->
+      <div class="audio-control-wrapper">
+        <button id="music-pill-btn" class="music-pill" aria-label="Toggle Birthday Melody">
+          <span class="music-icon" id="music-icon-anim">🎵</span>
+          <span class="music-text" id="music-text-label">Play Music</span>
+        </button>
+      </div>
+    </header>
 
-    <!-- ====================================================================
-         SECTION 1: WELCOME SCREEN 🧸
-         ==================================================================== -->
-    <section id="welcome" class="stage active" aria-label="Welcome Screen">
-      <div class="glass-card welcome-card">
-        <div class="welcome-content-split">
+    <!-- Main Scrapbook Album Binder Wrapper -->
+    <main class="scrapbook-binder">
+      
+      <!-- Binder Ring Spine Visual on Desktop / Large Tablets -->
+      <div class="binder-spiral-spine" aria-hidden="true">
+        <span class="spiral-loop"></span>
+        <span class="spiral-loop"></span>
+        <span class="spiral-loop"></span>
+        <span class="spiral-loop"></span>
+        <span class="spiral-loop"></span>
+        <span class="spiral-loop"></span>
+        <span class="spiral-loop"></span>
+      </div>
 
-          <!-- Left Text Side -->
-          <div class="welcome-text-side">
-            <div class="card-icon" aria-hidden="true">
-              <span class="sparkle">✨</span>
-              <span class="heart-pulse">💖</span>
-              <span class="sparkle">✨</span>
-            </div>
+      <!-- ==================================================================
+           PAGE 1: SCRAPBOOK COVER & WELCOME 🎀
+           ================================================================== -->
+      <section id="page-welcome" class="scrapbook-page active" data-page-index="1" aria-label="Scrapbook Cover & Welcome">
+        <div class="paper-sheet cover-sheet">
+          
+          <!-- Decorative Top Washi Tape -->
+          <div class="washi-tape tape-center tape-peach"></div>
 
-            <h1 class="welcome-title">
-              Happy Birthday <span class="name-highlight">Andrea Maria Jesslin</span> <span class="title-heart">❤️</span>
+          <!-- Cute Ribbon Stamp -->
+          <div class="stamp-badge">
+            <span class="stamp-icon">🎀</span>
+            <span class="stamp-text">SPECIAL EDITION • FOR AGNES</span>
+          </div>
+
+          <!-- Main Handwritten Birthday Title -->
+          <div class="scrapbook-header-box">
+            <h1 class="handwritten-title">
+              Happy Birthday! <span class="heart-pulse">💖</span>
             </h1>
-
-            <p class="welcome-subtitle">
-              I made something special just for you...
+            <h2 class="sister-name-banner">
+              To My Amazing Sister <span class="sister-name-display" id="welcome-sister-name">Agnes Veronica Roselin</span> 🌸
+            </h2>
+            <p class="handwritten-subtext">
+              "A handmade journal of our sweetest memories, smiles & secrets."
             </p>
+          </div>
 
-            <button id="start-btn" class="glow-button" aria-label="Open Your Surprise">
-              <span class="btn-text">Open Your Surprise</span>
-              <span class="btn-sparkle">✨</span>
-              <div class="btn-glow-effect"></div>
+          <!-- Centerpiece Polaroid Preview Frame (Agnes with cute dog) -->
+          <div class="polaroid-wrapper single-featured-polaroid">
+            <div class="washi-tape tape-corner-left tape-pink"></div>
+            <div class="polaroid-card">
+              <div class="polaroid-photo-box" id="welcome-photo-box">
+                <img src="images/agnes-welcome.png" alt="Agnes Veronica Roselin" class="polaroid-img photo-face-focus" id="welcome-photo-img">
+              </div>
+              <div class="polaroid-caption">
+                <p class="caption-text">Another year of you being wonderful ✨</p>
+                <span class="caption-doodle">💕</span>
+              </div>
+            </div>
+            <div class="washi-tape tape-corner-right tape-lavender"></div>
+          </div>
+
+          <!-- Sticky Note Journal Message -->
+          <div class="sticky-note note-yellow">
+            <div class="pin-tack">📌</div>
+            <p class="note-text">
+              ✨ <strong>Turn the page, Agnes!</strong> Explore our photo gallery, find the 5 hidden hearts, scratch a secret surprise card, solve your photo puzzle, and unseal your birthday letter! 💌
+            </p>
+          </div>
+
+          <!-- Turn Page / Next Button -->
+          <div class="page-footer-action">
+            <button class="scrapbook-btn next-page-btn" data-next-page="memories" aria-label="Open Scrapbook to Memories">
+              <span class="btn-icon">📖</span>
+              <span class="btn-text">Open Scrapbook</span>
+              <span class="btn-arrow">→</span>
             </button>
           </div>
 
-          <!-- Right Photo Side -->
-          <div class="welcome-photo-side">
-            <div class="welcome-photo-container" aria-label="Photo of Andrea Maria Jesslin">
-              <span class="bear-heart-particle bear-heart-1">💖</span>
-              <span class="bear-heart-particle bear-heart-2">✨</span>
-              <span class="bear-heart-particle bear-heart-3">🌸</span>
-              <img src="images/welcome-photo.jpg" alt="Andrea Maria Jesslin" class="welcome-photo-img">
-            </div>
-          </div>
-
+          <div class="page-number-tag">Page 1 of 7</div>
         </div>
-      </div>
-    </section>
+      </section>
 
-
-
-    <!-- ====================================================================
-         SECTION 4: SPECIAL MESSAGE 💌
-         Consolidated Birthday Message + Make a Wish Interaction
-         ==================================================================== -->
-    <section id="message" class="stage" data-section="message" aria-label="Special Message Section">
-      
-      <!-- Personal Birthday Message & Cake Card (Single Unified Card) -->
-      <div class="glass-card message-card">
-        <!-- Top Left Back Button -->
-        <button class="stage-back-btn" data-back-to="welcome" aria-label="Back to Welcome">
-          <span class="back-arrow">←</span> Back
-        </button>
-
-        <div class="message-split-container">
+      <!-- ==================================================================
+           PAGE 2: MEMORIES SCRAPBOOK COLLAGE 📸
+           ================================================================== -->
+      <section id="page-memories" class="scrapbook-page" data-page-index="2" aria-label="Scrapbook Memories Collage">
+        <div class="paper-sheet memories-sheet">
           
-          <!-- Left Side: Personal Message -->
-          <div class="message-text-column">
-            <h2 class="message-title">
-              Andrea Maria Jesslin... <span class="sparkle">✨</span>
+          <!-- Back Button -->
+          <button class="scrapbook-back-btn" data-back-to="welcome" aria-label="Back to Welcome Page">
+            <span class="back-arrow">←</span> Back
+          </button>
+
+          <!-- Decorative Top Washi Tape -->
+          <div class="washi-tape tape-center tape-lavender"></div>
+
+          <!-- Page Header -->
+          <div class="scrapbook-header-box">
+            <h2 class="handwritten-title">
+              Sweet Memories & Snaps 📸✨
             </h2>
-            <p class="message-subtitle">
-              There's something I want you to know. <span class="heart-pulse">❤️</span>
+            <p class="handwritten-subtext">
+              Every picture of you brings a smile, cherished laughter, and joyful warmth.
             </p>
-
-            <div class="personal-message-body" id="message-body">
-              <p class="message-paragraph">Happy Birthday, Andrea! ❤️</p>
-              <p class="message-paragraph">I made this little surprise just for you because you deserve a day filled with happiness, smiles and beautiful memories.</p>
-              <p class="message-paragraph">We've shared so many moments, and I hope there are many more memories waiting for us.</p>
-              <p class="message-paragraph">Whatever this new year brings, I hope you always keep smiling and chasing the things that make you happy.</p>
-              <p class="message-paragraph">Enjoy your day, Andrea. You deserve it! 🎂✨</p>
-            </div>
           </div>
 
-          <!-- Right Side: Birthday Candle & Wish -->
-          <div class="message-cake-column">
-            <h3 class="wish-title">
-              Andrea, make a wish... <span class="sparkle-title">✨</span>
-            </h3>
-            <p class="wish-subtitle">
-              Close your eyes and make your birthday wish!
-            </p>
-
-            <div class="cake-visual-wrapper" id="cake-wrapper">
-              <div class="cake-container">
-                <div class="candle-wrapper">
-                  <div class="candle-flame-glow" id="flame-glow"></div>
-                  <div class="candle-flame" id="candle-flame">
-                    <div class="flame-inner"></div>
-                  </div>
-                  <div class="candle-wick"></div>
-                  <div class="candle-stick"></div>
+          <!-- Scrapbook Collage Grid (4 Polaroid Cards for Agnes) -->
+          <div class="scrapbook-collage-grid" id="memories-grid">
+            
+            <!-- Polaroid 1: Agnes Meditating / Zen vibes -->
+            <div class="polaroid-wrapper polaroid-tilt-1" data-photo-idx="0">
+              <div class="washi-tape tape-top tape-pink"></div>
+              <div class="polaroid-card">
+                <div class="polaroid-photo-box">
+                  <img src="images/agnes-photo1.png" alt="Agnes Veronica Roselin - Zen and Peace" class="polaroid-img photo-zen-focus">
                 </div>
-
-                <div class="cake-tier cake-tier-top">
-                  <div class="cake-frosting">
-                    <span class="frosting-drip"></span>
-                    <span class="frosting-drip"></span>
-                    <span class="frosting-drip"></span>
-                    <span class="frosting-drip"></span>
-                  </div>
+                <div class="polaroid-caption">
+                  <p class="caption-text">Zen vibes & peaceful smiles 🧘‍♀️✨</p>
+                  <span class="caption-sticker">⭐</span>
                 </div>
-                <div class="cake-tier cake-tier-bottom">
-                  <div class="cake-frosting">
-                    <span class="frosting-drip"></span>
-                    <span class="frosting-drip"></span>
-                    <span class="frosting-drip"></span>
-                    <span class="frosting-drip"></span>
-                    <span class="frosting-drip"></span>
-                  </div>
-                </div>
-                <div class="cake-plate"></div>
               </div>
             </div>
 
-            <div class="wish-actions">
-              <button id="wish-btn" class="glow-button wish-button" aria-label="Make My Wish">
-                <span class="btn-text">Make My Wish</span>
-                <span class="btn-sparkle">🎂</span>
-                <div class="btn-glow-effect"></div>
-              </button>
-
-              <div id="wish-response" class="wish-response-box hidden-state">
-                <p class="wish-made-text">May this new year be filled with happiness, success, laughter, and endless reasons to smile. ❤️</p>
-                <p class="wish-heading-highlight">Happy Birthday, Andrea! 🎂✨</p>
+            <!-- Polaroid 2: Agnes Standing in Yellow -->
+            <div class="polaroid-wrapper polaroid-tilt-2" data-photo-idx="1">
+              <div class="washi-tape tape-top tape-yellow"></div>
+              <div class="polaroid-card">
+                <div class="polaroid-photo-box">
+                  <img src="images/agnes-photo2.png" alt="Agnes Veronica Roselin - Sweet Smile" class="polaroid-img photo-top-focus">
+                </div>
+                <div class="polaroid-caption">
+                  <p class="caption-text">Sweetest sunshine & stylish pose ☀️💛</p>
+                  <span class="caption-sticker">🍓</span>
+                </div>
               </div>
+            </div>
 
-              <button id="rewish-btn" class="glow-button secondary-glow-btn hidden-state" aria-label="Make Another Wish">
-                <span class="btn-text">Make Another Wish</span>
-                <span class="btn-sparkle">✨</span>
+            <!-- Polaroid 3: Agnes With Cake -->
+            <div class="polaroid-wrapper polaroid-tilt-3" data-photo-idx="2">
+              <div class="washi-tape tape-top tape-lavender"></div>
+              <div class="polaroid-card">
+                <div class="polaroid-photo-box">
+                  <img src="images/agnes-photo3.png" alt="Agnes Veronica Roselin - Baking Cake" class="polaroid-img photo-face-focus">
+                </div>
+                <div class="polaroid-caption">
+                  <p class="caption-text">Master baker with yummy cake 🎂🍰</p>
+                  <span class="caption-sticker">🎀</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Polaroid 4: Agnes with Dog -->
+            <div class="polaroid-wrapper polaroid-tilt-4" data-photo-idx="3">
+              <div class="washi-tape tape-top tape-peach"></div>
+              <div class="polaroid-card">
+                <div class="polaroid-photo-box">
+                  <img src="images/agnes-photo4.png" alt="Agnes Veronica Roselin - Puppy Love" class="polaroid-img photo-face-focus">
+                </div>
+                <div class="polaroid-caption">
+                  <p class="caption-text">Pure joy & cuddles with puppy 🐾💕</p>
+                  <span class="caption-sticker">🧁</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Scrapbook Journal Tape Note -->
+          <div class="sticky-note note-pink">
+            <div class="pin-tack">📎</div>
+            <p class="note-text">
+              💡 <em>Tip: Tap any polaroid snapshot to view it up close in full detail!</em>
+            </p>
+          </div>
+
+          <!-- Continue to Game Button -->
+          <div class="page-footer-action">
+            <button class="scrapbook-btn next-page-btn" data-next-page="game" aria-label="Continue to Hidden Hearts Game">
+              <span class="btn-icon">🎮</span>
+              <span class="btn-text">Play Hidden Hearts Game</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </div>
+
+          <div class="page-number-tag">Page 2 of 7</div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           PAGE 3: FIND THE HIDDEN HEARTS MINI-GAME 🎮💕
+           ================================================================== -->
+      <section id="page-game" class="scrapbook-page" data-page-index="3" aria-label="Find the Hidden Hearts Mini-Game">
+        <div class="paper-sheet game-sheet">
+          
+          <!-- Back Button -->
+          <button class="scrapbook-back-btn" data-back-to="memories" aria-label="Back to Memories Page">
+            <span class="back-arrow">←</span> Back
+          </button>
+
+          <!-- Top Washi Tape -->
+          <div class="washi-tape tape-center tape-pink"></div>
+
+          <!-- Game Title & Instructions -->
+          <div class="scrapbook-header-box">
+            <span class="game-badge">🎮 MINI-GAME #1</span>
+            <h2 class="handwritten-title">
+              Find the 5 Hidden Hearts! 🔍💕
+            </h2>
+            <p class="handwritten-subtext">
+              There are <strong>5 magical hearts</strong> tucked into this scrapbook page for you, Agnes! Tap each heart to collect it! ✨
+            </p>
+          </div>
+
+          <!-- Game Scoreboard & Controls Bar -->
+          <div class="game-scoreboard-bar">
+            
+            <div class="score-display-box">
+              <span class="score-label">Hearts Found:</span>
+              <span class="score-counter" id="hearts-count-num">0</span> / 5
+            </div>
+
+            <!-- Heart Slots Indicator -->
+            <div class="heart-slots-row" id="heart-slots-container">
+              <span class="heart-slot" data-slot="1" title="Heart 1">🤍</span>
+              <span class="heart-slot" data-slot="2" title="Heart 2">🤍</span>
+              <span class="heart-slot" data-slot="3" title="Heart 3">🤍</span>
+              <span class="heart-slot" data-slot="4" title="Heart 4">🤍</span>
+              <span class="heart-slot" data-slot="5" title="Heart 5">🤍</span>
+            </div>
+
+            <!-- Action Controls -->
+            <div class="game-action-buttons">
+              <button id="game-hint-btn" class="mini-tool-btn" aria-label="Need a Hint?">
+                <span>💡 Hint</span>
               </button>
-
-              <button id="stage2-next-btn" class="glow-button continue-button" aria-label="Play Birthday Game">
-                <span class="btn-text">Play Birthday Game 🎮</span>
-                <span class="btn-arrow">→</span>
-                <div class="btn-glow-effect"></div>
+              <button id="game-reset-btn" class="mini-tool-btn" aria-label="Reset Game">
+                <span>🔄 Reset</span>
               </button>
             </div>
           </div>
 
-        </div>
-      </div>
+          <!-- Scrapbook Game Board (Where 5 Hearts Are Hidden Among Cute Crafts) -->
+          <div class="game-board-container" id="game-board">
+            
+            <!-- Board Item 1: Floral Washi Tape Banner (Contains Hidden Heart 1) -->
+            <div class="board-element tape-strip-craft" style="top: 8%; left: 6%;">
+              <div class="floral-pattern-tape">🌸 🌿 🌸 🌿 🌸</div>
+              <!-- Hidden Heart 1: Peeking under the tape edge -->
+              <button class="hidden-heart-target" data-heart-id="1" aria-label="Collect Hidden Heart 1" style="top: -6px; right: 8px;">
+                <span class="heart-glyph">💖</span>
+                <span class="heart-glow"></span>
+              </button>
+            </div>
 
-    </section>
+            <!-- Board Item 2: Mini Polaroid Frame (Contains Hidden Heart 2) -->
+            <div class="board-element mini-craft-polaroid" style="top: 22%; right: 8%;">
+              <div class="washi-tape tape-tiny tape-yellow"></div>
+              <div class="craft-polaroid-inner">
+                <span class="craft-emoji">🎂</span>
+                <span class="craft-caption">Agnes's Moments</span>
+              </div>
+              <!-- Hidden Heart 2: Tucked behind the photo border -->
+              <button class="hidden-heart-target" data-heart-id="2" aria-label="Collect Hidden Heart 2" style="bottom: 4px; left: -10px;">
+                <span class="heart-glyph">💕</span>
+                <span class="heart-glow"></span>
+              </button>
+            </div>
 
-    <!-- ====================================================================
-         SECTION 3: BIRTHDAY MINI-GAME 🎮💖
-         Catch the Birthday Sparkles & Hearts Mini-Game for Andrea
-         ==================================================================== -->
-    <section id="game" class="stage" data-section="game" aria-label="Birthday Game Section">
-      <div class="glass-card game-card">
-        <!-- Top Left Back Button -->
-        <button class="stage-back-btn" data-back-to="message" aria-label="Back to Message">
-          <span class="back-arrow">←</span> Back
-        </button>
-        
-        <!-- Game Header -->
-        <div class="game-header">
-          <span class="game-badge">🎮 BIRTHDAY MINI-GAME</span>
-          <h2 class="game-title">
-            Catch the Pink Flowers! <span class="sparkle">🌸</span>
-          </h2>
-          <p class="game-instructions">
-            Tap <strong class="highlight-pink">🌸 Flowers (+1)</strong> & <strong class="highlight-gold">⭐ Golden Stars (+2)</strong>! Avoid <strong class="highlight-red">💣 Bombs</strong>!
-          </p>
-        </div>
+            <!-- Board Item 3: Vintage Postage Stamp (Contains Hidden Heart 3) -->
+            <div class="board-element craft-stamp" style="top: 50%; left: 8%;">
+              <div class="stamp-serrated-border">
+                <span class="stamp-icon">💌</span>
+                <span class="stamp-price">25¢</span>
+                <span class="stamp-words">SPECIAL DELIVERY</span>
+              </div>
+              <!-- Hidden Heart 3: Camouflaged in the stamp corner -->
+              <button class="hidden-heart-target" data-heart-id="3" aria-label="Collect Hidden Heart 3" style="bottom: -8px; right: -8px;">
+                <span class="heart-glyph">💓</span>
+                <span class="heart-glow"></span>
+              </button>
+            </div>
 
-        <!-- Game Score & Status Bar -->
-        <div class="game-status-bar">
-          <div class="game-score-badge">
-            <span class="score-label">Flowers:</span>
-            <span id="game-score-count" class="score-number">0</span> / 5 🌸
+            <!-- Board Item 4: Cute Sticky Note with Paperclip (Contains Hidden Heart 4) -->
+            <div class="board-element craft-sticky-note" style="bottom: 12%; left: 24%;">
+              <div class="craft-paperclip">📎</div>
+              <p class="sticky-handwriting">
+                "Agnes, you make every day brighter! ☀️"
+              </p>
+              <!-- Hidden Heart 4: Tucked under the paperclip -->
+              <button class="hidden-heart-target" data-heart-id="4" aria-label="Collect Hidden Heart 4" style="top: -12px; left: 8px;">
+                <span class="heart-glyph">💗</span>
+                <span class="heart-glow"></span>
+              </button>
+            </div>
+
+            <!-- Board Item 5: Cute Gift Box Ribbon Sticker (Contains Hidden Heart 5) -->
+            <div class="board-element craft-gift-box" style="bottom: 15%; right: 10%;">
+              <span class="gift-box-icon">🎁</span>
+              <span class="gift-tag">For Agnes ✨</span>
+              <!-- Hidden Heart 5: Inside the gift bow -->
+              <button class="hidden-heart-target" data-heart-id="5" aria-label="Collect Hidden Heart 5" style="top: -14px; right: 12px;">
+                <span class="heart-glyph">💝</span>
+                <span class="heart-glow"></span>
+              </button>
+            </div>
+
+            <!-- Playful Doodles on Board -->
+            <div class="doodle-sparkle-1" aria-hidden="true" style="top: 42%; left: 48%;">✨</div>
+            <div class="doodle-sparkle-2" aria-hidden="true" style="top: 15%; left: 42%;">🌸</div>
+            <div class="doodle-sparkle-3" aria-hidden="true" style="bottom: 35%; right: 38%;">⭐</div>
           </div>
-          <div id="game-streak-badge" class="game-streak-badge">
-            🔥 Streak: <span id="game-streak-count" class="streak-number">0</span>
+
+          <!-- Victory Card (Revealed Once All 5 Hearts Are Collected) -->
+          <div class="game-win-card hidden-state" id="game-win-card">
+            <div class="win-sparkle-burst">🎉🏆💖✨</div>
+            <h3 class="win-title">You Found All 5 Hearts, Agnes!</h3>
+            <p class="win-message">
+              You unlocked the next scrapbook surprise! Ready to scratch your secret card? ✨
+            </p>
+            <button class="scrapbook-btn win-unlock-btn" id="win-to-scratch-btn" aria-label="Go to Scratch Card">
+              <span class="btn-icon">✨</span>
+              <span class="btn-text">Scratch a Surprise Card</span>
+              <span class="btn-arrow">→</span>
+            </button>
           </div>
-          <button id="game-reset-btn" class="game-reset-btn" aria-label="Restart Game">
-            🔄 Reset
+
+          <div class="page-number-tag">Page 3 of 7</div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           PAGE 4: SCRATCH-TO-REVEAL SURPRISE CARD ✨🎫
+           ================================================================== -->
+      <section id="page-scratch" class="scrapbook-page" data-page-index="4" aria-label="Scratch-to-Reveal Surprise Card">
+        <div class="paper-sheet scratch-sheet">
+          
+          <!-- Back Button -->
+          <button class="scrapbook-back-btn" data-back-to="game" aria-label="Back to Hidden Hearts Game">
+            <span class="back-arrow">←</span> Back
           </button>
-        </div>
 
-        <!-- Game Progress Bar -->
-        <div class="game-progress-wrapper">
-          <div id="game-progress-fill" class="game-progress-fill" style="width: 0%;"></div>
-        </div>
+          <!-- Top Washi Tape -->
+          <div class="washi-tape tape-center tape-yellow"></div>
 
-        <!-- Interactive Game Play Arena -->
-        <div class="game-arena" id="game-arena" aria-label="Game Play Arena">
-          <!-- Floating interactive items will be generated dynamically by script.js -->
-        </div>
-
-        <!-- Game Victory Card (Unlocked when score == 5) -->
-        <div id="game-win-card" class="game-win-card hidden-state">
-          <div class="win-sparkle-burst">🎉✨💖</div>
-          <h3 class="win-title">You Did It, Andrea! 🏆✨</h3>
-          <p class="win-subtitle">You unlocked your birthday surprise gift!</p>
-          <button id="game-next-btn" class="glow-button game-continue-btn" aria-label="Open My Gift">
-            <span class="btn-text">Open My Gift 🎁</span>
-            <span class="btn-arrow">→</span>
-            <div class="btn-glow-effect"></div>
-          </button>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SECTION 5: GRAND FINALE 🎂
-         Closing Wishes, Confetti Explosion, Floating Hearts & Replay Button
-         ==================================================================== -->
-    <section id="finale" class="stage" data-section="finale" aria-label="Grand Finale Section">
-      <div class="glass-card final-stage-card">
-        <!-- Top Left Back Button -->
-        <button class="stage-back-btn" data-back-to="game" aria-label="Back to Game">
-          <span class="back-arrow">←</span> Back
-        </button>
-        
-        <!-- Elegant Audio Control Button -->
-        <div class="audio-control-bar">
-          <button id="music-toggle-btn" class="music-pill-button" aria-label="Toggle Birthday Music">
-            <span class="music-icon" id="music-icon">🎵</span>
-            <span class="music-label" id="music-label">Play Song</span>
-          </button>
-        </div>
-
-        <!-- Grand Finale Header -->
-        <div class="final-header">
-          <h1 class="final-wishes-title">
-            Happy Birthday <span class="heart-pulse">❤️</span>
-          </h1>
-          <h2 class="final-name-highlight">
-            Andrea Maria Jesslin
-          </h2>
-        </div>
-
-        <!-- Editable Final Message Card -->
-        <div class="final-message-container">
-          <p class="final-message-line">I hope this little surprise made your day a little more special. ❤️</p>
-          <p class="final-message-line">Keep smiling, keep dreaming, and keep being yourself.</p>
-          <p class="final-message-line">You deserve all the beautiful moments that are waiting for you.</p>
-          <p class="final-message-heart">Wishing you a wonderful year ahead! 🎂✨</p>
-        </div>
-
-        <!-- Final Memory Family Photo Frame -->
-        <div class="final-photo-container">
-          <div class="final-photo-frame" data-src="images/family-photo.jpg?v=26.0">
-            <img src="images/family-photo.jpg?v=26.0" alt="Andrea Maria Jesslin Family Photo" class="final-photo-img">
+          <!-- Page Header -->
+          <div class="scrapbook-header-box">
+            <span class="game-badge">✨ ACTIVITY #2</span>
+            <h2 class="handwritten-title">
+              Scratch to Reveal Your Surprise! ✨🎫
+            </h2>
+            <p class="handwritten-subtext">
+              Rub or drag with your finger across the golden glitter coating below to uncover a secret birthday message for you, Agnes!
+            </p>
           </div>
-        </div>
 
-        <!-- Final Action Navigation Buttons -->
-        <div class="final-actions-row">
-          <button id="replay-btn" class="glow-button secondary-glow-btn" aria-label="Replay Experience">
-            <span class="btn-text">Replay Experience</span>
-            <span class="btn-icon">🔄</span>
+          <!-- Interactive Scratch Card Container -->
+          <div class="scratch-card-wrapper" id="scratch-card-wrapper">
+            
+            <!-- Underneath: Revealed Secret Card Content -->
+            <div class="scratch-revealed-card" id="scratch-revealed-card">
+              <div class="scratch-card-stamp">💌 SPECIAL DELIVERY • TO AGNES</div>
+              <div class="scratch-card-icon">🎀🎂💖</div>
+              <h3 class="scratch-card-title">Agnes, You Are One Of A Kind!</h3>
+              <p class="scratch-card-text">
+                "Having you as a sister is one of life's sweetest blessings. You bring so much sunshine, laughter, warmth, and fun wherever you go!"
+              </p>
+              <div class="scratch-card-footer">
+                <span class="scratch-sticker">⭐ Sweet Sister</span>
+                <span class="scratch-sticker">🌸 Forever Loved</span>
+              </div>
+            </div>
+
+            <!-- Top Layer: Scratchable Canvas -->
+            <canvas id="scratch-canvas" class="scratch-canvas" aria-label="Scratch Area"></canvas>
+          </div>
+
+          <!-- Scratch Progress & Auto-Reveal Button -->
+          <div class="scratch-status-row">
+            <span class="scratch-progress-text" id="scratch-progress-text">Scratched: 0%</span>
+            <button class="mini-tool-btn" id="scratch-reveal-all-btn">
+              <span>🪄 Reveal All</span>
+            </button>
+          </div>
+
+          <!-- Continue to Puzzle Button -->
+          <div class="page-footer-action">
+            <button class="scrapbook-btn next-page-btn" data-next-page="puzzle" aria-label="Continue to Photo Puzzle">
+              <span class="btn-icon">🧩</span>
+              <span class="btn-text">Solve Agnes's Photo Puzzle</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </div>
+
+          <div class="page-number-tag">Page 4 of 7</div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           PAGE 5: PLAYABLE PHOTO PUZZLE 🧩📸 (Using Image 1 as requested!)
+           ================================================================== -->
+      <section id="page-puzzle" class="scrapbook-page" data-page-index="5" aria-label="Playable Photo Puzzle">
+        <div class="paper-sheet puzzle-sheet">
+          
+          <!-- Back Button -->
+          <button class="scrapbook-back-btn" data-back-to="scratch" aria-label="Back to Scratch Card">
+            <span class="back-arrow">←</span> Back
           </button>
 
-          <button id="extra-surprise-btn" class="glow-button primary-glow-btn" aria-label="One More Surprise">
-            <span class="btn-text">One More Surprise</span>
-            <span class="btn-icon">✨</span>
-            <div class="btn-glow-effect"></div>
+          <!-- Top Washi Tape -->
+          <div class="washi-tape tape-center tape-lavender"></div>
+
+          <!-- Page Header -->
+          <div class="scrapbook-header-box">
+            <span class="game-badge">🧩 MINI-GAME #3</span>
+            <h2 class="handwritten-title">
+              Agnes's Photo Puzzle 🧩📸
+            </h2>
+            <p class="handwritten-subtext">
+              Tap any two polaroid pieces to swap their positions and assemble Agnes's peaceful memory snapshot!
+            </p>
+          </div>
+
+          <!-- Puzzle Stats & Controls Bar -->
+          <div class="puzzle-controls-bar">
+            <div class="puzzle-stat-item">
+              <span class="stat-label">Moves:</span>
+              <span class="stat-value" id="puzzle-moves-count">0</span>
+            </div>
+            <div class="puzzle-tool-buttons">
+              <button class="mini-tool-btn" id="puzzle-peek-btn" aria-label="Peek Original Image">
+                <span>👁️ Peek Original</span>
+              </button>
+              <button class="mini-tool-btn" id="puzzle-shuffle-btn" aria-label="Shuffle Puzzle">
+                <span>🔄 Shuffle</span>
+              </button>
+              <button class="mini-tool-btn" id="puzzle-solve-btn" aria-label="Auto Solve Puzzle">
+                <span>✨ Solve</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Interactive 3x3 Tile-Swap Puzzle Board (First Image: Agnes Meditating) -->
+          <div class="puzzle-container">
+            <div class="puzzle-board" id="puzzle-board" aria-label="Photo Puzzle Board">
+              <!-- 9 Tiles generated dynamically by script.js from images/agnes-puzzle.png -->
+            </div>
+            
+            <!-- Peek Overlay Modal / Preview Box -->
+            <div class="puzzle-peek-overlay hidden-state" id="puzzle-peek-overlay">
+              <img src="images/agnes-puzzle.png" alt="Agnes's Target Snapshot" class="puzzle-peek-img" id="puzzle-target-img">
+              <p class="peek-caption">Target Snapshot 🌸</p>
+            </div>
+          </div>
+
+          <!-- Puzzle Solved Banner -->
+          <div class="puzzle-solved-card hidden-state" id="puzzle-solved-card">
+            <div class="win-sparkle-burst">🏆🎉✨</div>
+            <h3 class="win-title">Picture Perfect, Agnes!</h3>
+            <p class="win-message">
+              You pieced your memory together! Your Secret Birthday Letter is now unsealed and ready. 💌
+            </p>
+            <button class="scrapbook-btn win-unlock-btn" id="puzzle-to-letter-btn" aria-label="Open Secret Birthday Letter">
+              <span class="btn-icon">💌</span>
+              <span class="btn-text">Open Secret Letter</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </div>
+
+          <!-- Next Button -->
+          <div class="page-footer-action">
+            <button class="scrapbook-btn next-page-btn" data-next-page="letter" aria-label="Continue to Secret Letter">
+              <span class="btn-icon">💌</span>
+              <span class="btn-text">Open Secret Letter</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </div>
+
+          <div class="page-number-tag">Page 5 of 7</div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           PAGE 6: SECRET BIRTHDAY LETTER 💌
+           ================================================================== -->
+      <section id="page-letter" class="scrapbook-page" data-page-index="6" aria-label="Secret Birthday Letter">
+        <div class="paper-sheet letter-sheet">
+          
+          <!-- Back Button -->
+          <button class="scrapbook-back-btn" data-back-to="puzzle" aria-label="Back to Photo Puzzle">
+            <span class="back-arrow">←</span> Back
           </button>
-        </div>
 
-        <!-- Hidden Secret Surprise Trigger -->
-        <div class="secret-trigger-container">
-          <span id="secret-heart-trigger" class="secret-heart-trigger" aria-label="Discover Secret Surprise" role="button" tabindex="0">💖</span>
-        </div>
+          <!-- Top Washi Tape -->
+          <div class="washi-tape tape-center tape-peach"></div>
 
+          <!-- Page Header -->
+          <div class="scrapbook-header-box">
+            <h2 class="handwritten-title">
+              A Secret Birthday Letter 💌✨
+            </h2>
+            <p class="handwritten-subtext" id="letter-subtitle">
+              Sealed with love, cherished memories, and warmest wishes for Agnes.
+            </p>
+          </div>
+
+          <!-- Locked State Notice (Visible if user jumps ahead) -->
+          <div class="letter-locked-box" id="letter-locked-container">
+            <div class="lock-wax-seal">🔒</div>
+            <h3 class="locked-title">This Letter is Sealed!</h3>
+            <p class="locked-desc">
+              Play through the scrapbook activities to break the wax seal and reveal this personal letter for Agnes.
+            </p>
+            <div class="locked-actions">
+              <button class="scrapbook-btn btn-secondary" id="go-play-game-btn">
+                <span>🎮 Play Hearts Game</span>
+              </button>
+              <button class="text-link-btn" id="emergency-unlock-btn">
+                <span>(Unlock Now ✨)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Unlocked Interactive Envelope & Folded Letter -->
+          <div class="letter-unlocked-wrapper hidden-state" id="letter-unlocked-container">
+            
+            <!-- Interactive Envelope -->
+            <div class="vintage-envelope" id="vintage-envelope">
+              <div class="envelope-back"></div>
+              <div class="envelope-flap" id="envelope-flap">
+                <button class="wax-seal-btn" id="open-envelope-btn" aria-label="Break Wax Seal and Open Letter">
+                  <span class="seal-icon">💌</span>
+                  <span class="seal-text">OPEN ME</span>
+                </button>
+              </div>
+              <div class="envelope-front"></div>
+            </div>
+
+            <!-- Folded Letter Parchment (Slides out when opened) -->
+            <article class="stationery-letter-card hidden-state" id="stationery-letter">
+              <div class="stationery-border">
+                
+                <div class="letter-header">
+                  <span class="letter-date" id="letter-date-display">On Your Special Birthday 🎂</span>
+                  <h3 class="letter-salutation" id="letter-salutation">
+                    To My Dearest Sister, <span class="sister-name-display">Agnes Veronica Roselin</span> 💕
+                  </h3>
+                </div>
+
+                <div class="letter-body" id="letter-paragraphs-content">
+                  <p class="letter-p">
+                    Happy Birthday to the sweetest, kindest, and most wonderful sister in the world, Agnes! 💖
+                  </p>
+                  <p class="letter-p">
+                    Having you in my life has brought endless laughter, unforgettable adventures, and memories that I will treasure for the rest of my days.
+                  </p>
+                  <p class="letter-p">
+                    Even when times get busy or days get crazy, knowing you're there always brings a warm smile to my face. You make every simple moment brighter.
+                  </p>
+                  <p class="letter-p">
+                    On your birthday, I wish you boundless joy, dreams come true, good health, and sweet surprises. May every path you choose be filled with sunshine and happiness.
+                  </p>
+                  <p class="letter-p">
+                    Never forget how truly special, talented, and deeply loved you are, Agnes. I'm so proud to be your sister / brother.
+                  </p>
+                </div>
+
+                <div class="letter-footer">
+                  <p class="letter-closing">With all my love & warmest hugs,</p>
+                  <p class="letter-signature">Always & Forever ❤️</p>
+                </div>
+
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Continue to Final Celebration Button -->
+          <div class="page-footer-action" id="letter-next-action-box">
+            <button class="scrapbook-btn next-page-btn" data-next-page="celebration" aria-label="Go to Final Celebration">
+              <span class="btn-icon">🎂</span>
+              <span class="btn-text">To the Celebration!</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </div>
+
+          <div class="page-number-tag">Page 6 of 7</div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           PAGE 7: FINAL BIRTHDAY CELEBRATION 🎂🎉 (Agnes Cake Presentation!)
+           ================================================================== -->
+      <section id="page-celebration" class="scrapbook-page" data-page-index="7" aria-label="Final Birthday Celebration">
+        <div class="paper-sheet celebration-sheet">
+          
+          <!-- Back Button -->
+          <button class="scrapbook-back-btn" data-back-to="letter" aria-label="Back to Secret Letter Page">
+            <span class="back-arrow">←</span> Back
+          </button>
+
+          <!-- Top Washi Tape -->
+          <div class="washi-tape tape-center tape-gold"></div>
+
+          <!-- Celebration Header -->
+          <div class="scrapbook-header-box celebration-header-box">
+            <div class="party-hat-icon">🎉🎂🎈</div>
+            <h1 class="handwritten-title celebration-main-title">
+              Happy Birthday, <span class="sister-name-display">Agnes Veronica Roselin</span>! <span class="heart-pulse">❤️</span>
+            </h1>
+            <p class="handwritten-subtext">
+              "Here's to another beautiful year of laughter, growth, and boundless happiness!"
+            </p>
+          </div>
+
+          <!-- Celebration Centerpiece Polaroid (Agnes with Cake!) -->
+          <div class="polaroid-wrapper finale-featured-polaroid">
+            <div class="washi-tape tape-corner-left tape-yellow"></div>
+            <div class="polaroid-card">
+              <div class="polaroid-photo-box">
+                <img src="images/agnes-celebration.png" alt="Agnes Veronica Roselin Birthday Celebration" class="polaroid-img photo-face-focus" id="celebration-photo-img">
+              </div>
+              <div class="polaroid-caption">
+                <p class="caption-text" id="final-photo-caption-text">Celebrating you today and always, Agnes! 🎂❤️</p>
+                <span class="caption-doodle">🎂✨</span>
+              </div>
+            </div>
+            <div class="washi-tape tape-corner-right tape-pink"></div>
+          </div>
+
+          <!-- Final Wishes Handwritten Note Card -->
+          <div class="final-wish-card">
+            <p class="wish-line">
+              May your year ahead be blessed with pure happiness, wonderful surprises, and all the love in the universe, Agnes! 🌸✨
+            </p>
+            <p class="wish-highlight">
+              Keep shining, keep smiling, and keep being the amazing person you are! 💖
+            </p>
+          </div>
+
+          <!-- Festive Action Buttons Row -->
+          <div class="celebration-actions-row">
+            <button class="scrapbook-btn confetti-btn" id="confetti-shower-btn" aria-label="Shower More Confetti">
+              <span class="btn-icon">🎊</span>
+              <span class="btn-text">Shower Confetti!</span>
+            </button>
+
+            <button class="scrapbook-btn replay-journey-btn" id="replay-journey-btn" aria-label="Replay Scrapbook Journey">
+              <span class="btn-icon">🔄</span>
+              <span class="btn-text">Replay Scrapbook</span>
+            </button>
+          </div>
+
+          <div class="page-number-tag">Page 7 of 7</div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Photo Closeup Lightbox Modal (For viewing Polaroids in detail) -->
+  <div class="scrapbook-lightbox" id="scrapbook-lightbox" aria-hidden="true" role="dialog">
+    <div class="lightbox-overlay" id="lightbox-backdrop"></div>
+    <div class="lightbox-card">
+      <button class="lightbox-close-btn" id="lightbox-close-btn" aria-label="Close Photo View">✕</button>
+      <div class="washi-tape tape-center tape-lavender"></div>
+      <div class="lightbox-photo-frame">
+        <img src="" alt="Closeup View" id="lightbox-img" class="lightbox-img">
       </div>
-    </section>
-
-  </main>
-
-  <!-- One More Surprise Modal -->
-  <div id="surprise-modal" class="lightbox-modal" aria-hidden="true" role="dialog">
-    <div class="lightbox-overlay" id="surprise-modal-overlay"></div>
-    <div class="lightbox-content surprise-modal-content interactive-surprise-modal">
-      <button id="surprise-modal-close" class="lightbox-close-btn" aria-label="Close">&times;</button>
-      <div class="surprise-modal-body">
-        <span class="modal-heart-icon">💖</span>
-        <h3 class="modal-title">Andrea Maria Jesslin ❤️</h3>
-        <p class="modal-subtitle">This little website was made especially for you.</p>
-        <div class="secret-highlight-card">
-          <p class="secret-highlight-heading">Happy Birthday! 🎂✨</p>
-          <p class="secret-highlight-body">May your days be filled with endless joy, laughter, and beautiful memories. You deserve all the magic in the world! ❤️</p>
-        </div>
-        <p class="interactive-tap-hint">✨ Tap anywhere on screen for glowing sparkles! ✨</p>
-        <button id="surprise-modal-dismiss" class="glow-button dismiss-btn">Close</button>
-      </div>
+      <p class="lightbox-caption" id="lightbox-caption">Capturing memories ✨</p>
     </div>
   </div>
 
-  <!-- Hidden Secret Surprise Easter Egg Modal -->
-  <div id="secret-modal" class="lightbox-modal" aria-hidden="true" role="dialog">
-    <div class="lightbox-overlay" id="secret-modal-overlay"></div>
-    <div class="lightbox-content secret-modal-content">
-      <button id="secret-modal-close" class="lightbox-close-btn" aria-label="Close secret message">&times;</button>
-      <div class="secret-modal-body">
-        <span class="secret-modal-emoji">👀❤️</span>
-        <h3 class="secret-modal-title">Wait... you found the secret! 👀❤️</h3>
-        <p class="secret-modal-subtitle">Because one surprise was never enough.</p>
-        <div class="secret-highlight-card">
-          <p class="secret-highlight-heading">Happy Birthday once again, Andrea! 🎂✨</p>
-          <p class="secret-highlight-body">You are truly special, and I hope this little website gave you a reason to smile today.</p>
-        </div>
-        <button id="secret-modal-dismiss" class="glow-button secret-dismiss-btn">Close the Secret ✨</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js?v=27.0"></script>
+  <!-- Scrapbook Scripts -->
+  <script src="script.js?v=3.3"></script>
 </body>
 </html>
